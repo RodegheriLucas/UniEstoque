@@ -13,33 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
 namespace UniEstoque
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for FuncionariosTela.xaml
     /// </summary>
-    public partial class DashboardTela : Window
+    public partial class FuncionariosTela : Page
     {
-        public DashboardTela()
+        public FuncionariosTela()
         {
             InitializeComponent();
-        }
-        public object Header { get; set; }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Funcionarios_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new FuncionariosTela());
-        }
-
-        private void Estoque_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
