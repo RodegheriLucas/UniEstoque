@@ -66,6 +66,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RelatorioTela.xaml.cs">
+      <DependentUpon>RelatorioTela.xaml</DependentUpon>
+    </Compile>
     <Page Include="DashboardTela.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -79,14 +82,25 @@
       <DependentUpon>DashboardTela.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="FuncionariosTela.xaml">
+    <Page Include="EstoqueTela.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FuncionarioTela.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RelatorioTela.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FuncionariosTela.xaml.cs">
-      <DependentUpon>FuncionariosTela.xaml</DependentUpon>
+    <Compile Include="EstoqueTela.xaml.cs">
+      <DependentUpon>EstoqueTela.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FuncionarioTela.xaml.cs">
+      <DependentUpon>FuncionarioTela.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

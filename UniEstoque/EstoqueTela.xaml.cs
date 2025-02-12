@@ -10,30 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 
 namespace UniEstoque
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for EstoqueTela.xaml
     /// </summary>
-    public partial class DashboardTela : Window
+    public partial class EstoqueTela : Window
     {
-        public DashboardTela()
+        public EstoqueTela()
         {
             InitializeComponent();
         }
-        public object Header { get; set; }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
         private void Dashboard_Click(object sender, RoutedEventArgs e)
         {
-
+            Window Dashboard = new DashboardTela();
+            Dashboard.Show();
+            this.Close();
         }
 
         private void Funcionarios_Click(object sender, RoutedEventArgs e)
@@ -45,9 +39,7 @@ namespace UniEstoque
 
         private void Estoque_Click(object sender, RoutedEventArgs e)
         {
-            Window Estoque = new EstoqueTela();
-            Estoque.Show();
-            this.Close();
+
         }
         private void Relatorio_Click(object sender, RoutedEventArgs e)
         {
