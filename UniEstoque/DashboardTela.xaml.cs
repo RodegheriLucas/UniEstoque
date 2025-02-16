@@ -21,6 +21,9 @@ namespace UniEstoque
     /// </summary>
     public partial class DashboardTela : Window
     {
+        public int BtnPos { get; set; }
+        public string BtnAlign { get; set; }
+
         public DashboardTela()
         {
             InitializeComponent();
@@ -31,29 +34,17 @@ namespace UniEstoque
         {
 
         }
-        private void Dashboard_Click(object sender, RoutedEventArgs e)
+        private void Navbar_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Funcionarios_Click(object sender, RoutedEventArgs e)
-        {
-            Window Funcionario = new FuncionarioTela();
-            Funcionario.Show();
-            this.Close();
-        }
-
-        private void Estoque_Click(object sender, RoutedEventArgs e)
-        {
-            Window Estoque = new EstoqueTela();
-            Estoque.Show();
-            this.Close();
-        }
-        private void Relatorio_Click(object sender, RoutedEventArgs e)
-        {
-            Window Relatorio = new RelatorioTela();
-            Relatorio.Show();
-            this.Close();
+            if (NavbarFrame.Content == null)
+            {                
+                Uri Navbar = new Uri("Navbar.xaml", UriKind.Relative);
+                this.NavbarFrame.Navigate(Navbar);;
+            }
+            else
+            {                
+                NavbarFrame.Content = null;                
+            }
         }
     }
 }

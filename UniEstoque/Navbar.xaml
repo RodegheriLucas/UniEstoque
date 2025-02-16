@@ -1,0 +1,86 @@
+﻿<Page x:Class="UniEstoque.Navbar"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UniEstoque"
+      mc:Ignorable="d" 
+      Background="Black"
+      d:DesignHeight="920" d:DesignWidth="250"
+      Title="Navbar">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DesignRes\Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- Indice -->
+        <TextBlock 
+            x:Name="Indice" 
+            FontSize="60" 
+            Foreground="White" 
+            Height="80" 
+            Width="170" 
+            VerticalAlignment="Top" 
+            Grid.Row="0" 
+            Margin="40,20" 
+            HorizontalAlignment="Left"><Bold>Indice</Bold>
+        </TextBlock>
+        <!-- Botões Navbar -->
+        <Border 
+            Style="{StaticResource BordaNavbar}"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top"
+            Grid.Row="1" 
+            Margin="25">
+            <Button 
+                x:Name="Dashboard" 
+                Style="{StaticResource BotaoPadrao}"
+                Click="Dashboard_Click" Background="#FF1F1F1F" BorderBrush="{x:Null}" HorizontalAlignment="Center">Dashboard
+            </Button>
+        </Border>
+        <Border 
+            Style="{StaticResource BordaNavbar}"
+            HorizontalAlignment="Center" 
+            Grid.Row="1" 
+            Margin="25" 
+            VerticalAlignment="Bottom">
+            <Button 
+                x:Name="Funcionarios" 
+                Style="{StaticResource BotaoPadrao}"
+                Click="Dashboard_Click" Background="#FF1F1F1F" BorderBrush="{x:Null}">Funcionarios
+            </Button>
+        </Border>
+        <Border
+            Style="{StaticResource BordaNavbar}"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top"
+            Grid.Row="2" 
+            Margin="25,36">
+            <Button
+                x:Name="Estoque" 
+                Style="{StaticResource BotaoPadrao}"
+                Click="Estoque_Click">Estoque</Button>
+        </Border>
+        <Border
+            Style="{StaticResource BordaNavbar}"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Bottom" 
+            Grid.Row="2" 
+            Margin="25">
+            <Button 
+                x:Name="Relatorios" 
+                Style="{StaticResource BotaoPadrao}"
+                Click="Relatorio_Click">Relatórios
+            </Button>
+        </Border>
+    </Grid>
+</Page>
