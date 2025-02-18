@@ -21,9 +21,6 @@ namespace UniEstoque
     /// </summary>
     public partial class DashboardTela : Window
     {
-        public int BtnPos { get; set; }
-        public string BtnAlign { get; set; }
-
         public DashboardTela()
         {
             InitializeComponent();

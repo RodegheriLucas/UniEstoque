@@ -20,6 +20,10 @@ namespace UniEstoque
     /// </summary>
     public partial class Navbar : Page
     {
+        public void GetJanelaAberta(Window JanelaAnterior)
+        {
+            
+        }
         public Navbar()
         {
             InitializeComponent();
@@ -27,7 +31,14 @@ namespace UniEstoque
         private void Dashboard_Click(object sender, RoutedEventArgs e)
         {
             Window Dashboard = new DashboardTela();
-            Dashboard.Show();
+            if (Dashboard.IsActive == true)
+            {
+                return;
+            }
+            else
+            {
+                Dashboard.Show();
+            }
         }
 
         private void Funcionarios_Click(object sender, RoutedEventArgs e)

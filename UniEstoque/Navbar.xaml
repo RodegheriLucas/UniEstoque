@@ -17,10 +17,11 @@
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
         <!-- Indice -->
         <TextBlock 
@@ -35,52 +36,39 @@
             HorizontalAlignment="Left"><Bold>Indice</Bold>
         </TextBlock>
         <!-- Botões Navbar -->
-        <Border 
-            Style="{StaticResource BordaNavbar}"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Top"
-            Grid.Row="1" 
-            Margin="25">
-            <Button 
-                x:Name="Dashboard" 
-                Style="{StaticResource BotaoPadrao}"
-                Click="Dashboard_Click" Background="#FF1F1F1F" BorderBrush="{x:Null}" HorizontalAlignment="Center">Dashboard
-            </Button>
-        </Border>
-        <Border 
-            Style="{StaticResource BordaNavbar}"
-            HorizontalAlignment="Center" 
-            Grid.Row="1" 
-            Margin="25" 
-            VerticalAlignment="Bottom">
-            <Button 
-                x:Name="Funcionarios" 
-                Style="{StaticResource BotaoPadrao}"
-                Click="Dashboard_Click" Background="#FF1F1F1F" BorderBrush="{x:Null}">Funcionarios
-            </Button>
-        </Border>
-        <Border
-            Style="{StaticResource BordaNavbar}"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Top"
-            Grid.Row="2" 
-            Margin="25,36">
-            <Button
-                x:Name="Estoque" 
-                Style="{StaticResource BotaoPadrao}"
-                Click="Estoque_Click">Estoque</Button>
-        </Border>
-        <Border
-            Style="{StaticResource BordaNavbar}"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Bottom" 
-            Grid.Row="2" 
-            Margin="25">
-            <Button 
-                x:Name="Relatorios" 
-                Style="{StaticResource BotaoPadrao}"
-                Click="Relatorio_Click">Relatórios
-            </Button>
-        </Border>
+        <Button 
+            x:Name="Dashboard" 
+            Style="{StaticResource BotoesNavbar}"
+            Click="Dashboard_Click" 
+            Background="#FF1F1F1F" 
+            BorderBrush="{x:Null}" 
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Center"
+            Grid.Row="1">Dashboard</Button>
+        <Button 
+            x:Name="Funcionarios" 
+            Style="{StaticResource BotoesNavbar}"
+            Click="Funcionarios_Click" 
+            Background="#FF1F1F1F" 
+            BorderBrush="{x:Null}"
+            Grid.Row="2"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Center">Funcionarios
+        </Button>
+        <Button
+            x:Name="Estoque" 
+            Style="{StaticResource BotoesNavbar}"
+            Click="Estoque_Click"
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Center"
+            Grid.Row="3">Estoque</Button>
+        <Button 
+            x:Name="Relatorios" 
+            Style="{StaticResource BotoesNavbar}"
+            Click="Relatorio_Click"
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Center" 
+            Grid.Row="4">Relatórios
+        </Button>
     </Grid>
 </Page>

@@ -23,29 +23,17 @@ namespace UniEstoque
         {
             InitializeComponent();
         }
-        private void Dashboard_Click(object sender, RoutedEventArgs e)
+        private void Navbar_Click(object sender, RoutedEventArgs e)
         {
-            Window Dashboard = new DashboardTela();
-            Dashboard.Show();
-            this.Close();
-        }
-
-        private void Funcionarios_Click(object sender, RoutedEventArgs e)
-        {
-            Window Funcionario = new FuncionarioTela();
-            Funcionario.Show();
-            this.Close();
-        }
-
-        private void Estoque_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Relatorio_Click(object sender, RoutedEventArgs e)
-        {
-            Window Relatorio = new RelatorioTela();
-            Relatorio.Show();
-            this.Close();
+            if (NavbarFrame.Content == null)
+            {
+                Uri Navbar = new Uri("Navbar.xaml", UriKind.Relative);
+                this.NavbarFrame.Navigate(Navbar); ;
+            }
+            else
+            {
+                NavbarFrame.Content = null;
+            }
         }
     }
 }

@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Background="Bisque"
         Title="Relatorio" Height="920" Width="1600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DesignRes\Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -25,85 +32,14 @@
         <Rectangle x:Name="HeaderBase" Height="120" Grid.ColumnSpan="3" Fill="#FF1F1F1F" VerticalAlignment="Top"></Rectangle>
 
         <!-- Navbar -->
+        <Frame x:Name="NavbarFrame" 
+               Grid.RowSpan="3" 
+               Width="250" 
+               HorizontalAlignment="Left" 
+               NavigationUIVisibility="Hidden"/>
 
-        <Rectangle x:Name="NavbarComplement" Grid.RowSpan="3" Width="250" Fill="Black" HorizontalAlignment="Left" Grid.Column="0" />
-        <Button 
-            x:Name="NavbarButton" 
-            Background="Black" 
-            BorderBrush="{x:Null}" 
-            Height="80" 
-            Width="20" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Top" 
-            Grid.Column="0" 
-            Grid.Row="0" 
-            Margin="248,20"/>
-
-        <Button 
-        x:Name="Dashboard" 
-        Background="#FF1F1F1F" 
-        BorderBrush="{x:Null}" 
-        FontSize="25" 
-        Foreground="White" 
-        Height="45" 
-        Width="200" 
-        HorizontalAlignment="Left" 
-        VerticalAlignment="Top" 
-        Grid.Column="0" 
-        Grid.Row="1" 
-        Margin="25,36" 
-        Click="Dashboard_Click">Dashboard</Button>
-        <Button 
-        x:Name="Funcionarios" 
-        Background="#FF1F1F1F" 
-        BorderBrush="{x:Null}" 
-        FontSize="25" 
-        Height="45" 
-        Width="200" 
-        HorizontalAlignment="Left" 
-        VerticalAlignment="Bottom" 
-        Grid.Column="0" 
-        Grid.Row="1"  
-        Margin="25,60" 
-        Click="Funcionarios_Click">Funcionario</Button>
-
-        <Button 
-        x:Name="Estoque" 
-        Background="#FF1F1F1F" 
-        BorderBrush="{x:Null}" 
-        FontSize="25" 
-        Height="45" 
-        Width="200" 
-        HorizontalAlignment="Left" 
-        VerticalAlignment="Top" 
-        Grid.Column="0" 
-        Grid.Row="2" 
-        Margin="25,36" 
-        Click="Estoque_Click">Estoque</Button>
-        <Button 
-        x:Name="Relatorios" 
-        Background="#FF1F1F1F" 
-        BorderBrush="{x:Null}" 
-        FontSize="25" 
-        Height="45" 
-        Width="200" 
-        HorizontalAlignment="Left" 
-        VerticalAlignment="Top" 
-        Grid.Column="0" 
-        Grid.Row="2" 
-        Margin="25,176" 
-        Click="Relatorio_Click">Relatórios</Button>
-
-        <TextBlock 
-        x:Name="Indice" 
-        FontSize="60" 
-        Foreground="White" 
-        Height="80" 
-        Width="170" 
-        VerticalAlignment="Top" 
-        Grid.Row="0" 
-        Margin="40,20,323,0" 
-        HorizontalAlignment="Left"><Bold>Indice</Bold>
-        </TextBlock>
+        <Button x:Name="NavbarButton" 
+                Style="{StaticResource AcessarNavbar}"
+                Click="Navbar_Click"/>
     </Grid>
 </Window>
