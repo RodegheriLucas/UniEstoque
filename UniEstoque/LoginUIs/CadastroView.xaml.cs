@@ -24,12 +24,12 @@ namespace UniEstoque.LoginUIs
             InitializeComponent();
         }
 
-        private void Cadastrar_Click(object sender, RoutedEventArgs e)
+        private void cadastrar_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void IrParaLogin_Click(object sender, RoutedEventArgs e)
+        private void backToLogin_Click(object sender, RoutedEventArgs e)
         {
 
         }

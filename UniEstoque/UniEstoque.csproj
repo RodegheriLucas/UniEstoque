@@ -86,6 +86,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Banco\DatabaseInit.cs" />
+    <Compile Include="Banco\FuncionarioDB.cs" />
     <Compile Include="LoginUIs\CadastroView.xaml.cs">
       <DependentUpon>CadastroView.xaml</DependentUpon>
     </Compile>
