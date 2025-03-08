@@ -11,28 +11,29 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using UniEstoque.Banco;
 
 namespace UniEstoque.LoginUIs
 {
     /// <summary>
-    /// Interaction logic for CadastroView.xaml
+    /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class CadastroView : Window
+    public partial class LoginView : Window
     {
-        public CadastroView()
+        public LoginView()
         {
             InitializeComponent();
         }
-
-        private void cadastrar_Click(object sender, RoutedEventArgs e)
+        private void entrar_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void backToLogin_Click(object sender, RoutedEventArgs e)
+        private void goToCadastro_Click(object sender, RoutedEventArgs e)
         {
-
+            CadastroView telaCadastro = new CadastroView();
+            telaCadastro.Show();
+            this.Close();
         }
+
     }
 }

@@ -19,7 +19,7 @@ namespace UniEstoque.Banco
         {
             try
             {
-                SQLiteConnection.CreateFile(@"c:\dados\UniEstoqueDB.sqlite");
+                SQLiteConnection.CreateFile(@"f:\dados\UniEstoqueDB.sqlite");
             }
             catch
             {

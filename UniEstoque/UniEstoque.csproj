@@ -78,6 +78,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LoginUIs\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,8 +92,12 @@
     </Compile>
     <Compile Include="Banco\DatabaseInit.cs" />
     <Compile Include="Banco\FuncionarioDB.cs" />
+    <Compile Include="Classes\Funcionario.cs" />
     <Compile Include="LoginUIs\CadastroView.xaml.cs">
       <DependentUpon>CadastroView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginUIs\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
