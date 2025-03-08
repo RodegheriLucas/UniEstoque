@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SQLite;
 using System.Net;
 using System.Xml.Serialization.Configuration;
+using UniEstoque.Classes;
 
 namespace UniEstoque.Banco
 {
