@@ -22,6 +22,7 @@ namespace UniEstoque.LoginUIs
     {
         public CadastroView()
         {
+            FuncionarioDB.createTabelaFuncionario();
             InitializeComponent();
         }
 
