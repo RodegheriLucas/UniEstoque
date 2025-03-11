@@ -27,9 +27,20 @@
         </Grid.RowDefinitions>
 
         <!--  Header  -->
-
-        <TextBlock x:Name="Title" FontSize="70" Grid.ColumnSpan="3" Margin="0,13" TextAlignment="Center" Foreground="White"><Bold>Dashboard</Bold></TextBlock>
-        <Rectangle x:Name="HeaderBase" Height="120" Grid.ColumnSpan="3" Fill="#FF1F1F1F" VerticalAlignment="Top"></Rectangle>
+        <Rectangle x:Name="HeaderBase" 
+                   Height="120" 
+                   Grid.ColumnSpan="3" 
+                   Fill="#FF1F1F1F" 
+                   VerticalAlignment="Top"/>
+        <!-- Título -->
+        <TextBlock x:Name="Title" 
+                   Grid.ColumnSpan="4" 
+                   Margin="0,13,0,13" 
+                   TextAlignment="Center" 
+                   Foreground="White" 
+                   FontSize="70">
+            <Bold>Relatórios</Bold>
+        </TextBlock>
 
         <!-- Navbar -->
         <Frame x:Name="NavbarFrame" 
@@ -38,6 +49,7 @@
                HorizontalAlignment="Left" 
                NavigationUIVisibility="Hidden"/>
 
+        
         <Button x:Name="NavbarButton" 
                 Style="{StaticResource AcessarNavbar}"
                 Click="Navbar_Click"/>

@@ -30,13 +30,13 @@ namespace UniEstoque
         }
         private void Dashboard_Click(object sender, RoutedEventArgs e)
         {
-            Window Dashboard = new DashboardTela();
-            if (Dashboard.IsActive == true)
+            if (new DashboardTela().IsActive == true)
             {
-                return;
+                
             }
             else
             {
+                Window Dashboard = new DashboardTela();
                 Dashboard.Show();
             }
         }

@@ -40,6 +40,15 @@
             Grid.ColumnSpan="3" 
             Fill="#FF1F1F1F" 
             VerticalAlignment="Top"></Rectangle>
+        <!-- Título -->
+        <TextBlock x:Name="Pagina" 
+                   Grid.ColumnSpan="4" 
+                   Margin="0,13,0,13" 
+                   TextAlignment="Center" 
+                   Foreground="White" 
+                   FontSize="70">
+            <Bold>Estoque</Bold>
+        </TextBlock>
         <!-- Navbar -->
         <Frame x:Name="NavbarFrame" 
                Grid.RowSpan="3" 

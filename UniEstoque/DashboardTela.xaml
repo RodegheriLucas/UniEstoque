@@ -32,6 +32,12 @@
             <RowDefinition Height="263.012"/>
             <RowDefinition Height="452*"/>
         </Grid.RowDefinitions>
+        <!-- Barra de cabeçalho -->
+        <Rectangle x:Name="HeaderBase" 
+                   Grid.ColumnSpan="4" 
+                   Height="120" 
+                   VerticalAlignment="Top" 
+                   Fill="#FF1F1F1F"/>
         <!-- Título -->
         <TextBlock x:Name="Title" 
                    Grid.ColumnSpan="4" 
@@ -41,12 +47,6 @@
                    FontSize="70">
             <Bold>Dashboard</Bold>
         </TextBlock>
-        <!-- Barra de cabeçalho -->
-        <Rectangle x:Name="HeaderBase" 
-                   Grid.ColumnSpan="4" 
-                   Height="120" 
-                   VerticalAlignment="Top" 
-                   Fill="#FF1F1F1F"/>
         <!-- Complemento da barra lateral -->
         <Rectangle x:Name="NavbarComplement" 
                    Grid.RowSpan="3" 
