@@ -10,7 +10,7 @@ namespace UniEstoque.Banco
 
         public static SQLiteConnection dbConnection()
         {
-            sqliteConnection = new SQLiteConnection("Data Source=c\\dados\\UniEstoqueDB.sqlite; Version=3;");
+            sqliteConnection = new SQLiteConnection("Data Source=f:\\dados\\UniEstoqueDB.sqlite; Version=3;");
             sqliteConnection.Open();
             return sqliteConnection;
         }

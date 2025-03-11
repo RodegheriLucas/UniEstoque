@@ -69,7 +69,7 @@ namespace UniEstoque.Banco
                 throw ex;
             }
         }
-        public static void addCliente(Funcionario funcionario)
+        public static void addFuncionario(Funcionario funcionario)
         {
             try
             {
@@ -113,7 +113,7 @@ namespace UniEstoque.Banco
                 throw ex;
             }
         }
-        public static void deleteFuncionario(int id)
+        public static void deleteFuncionario(int id) 
         {
             try
             {
