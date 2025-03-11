@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Windows;
+using System;
 using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+using static UniEstoque.Banco.DatabaseInit;
 
 namespace UniEstoque
 {
@@ -13,5 +10,9 @@ namespace UniEstoque
     /// </summary>
     public partial class App : Application
     {
+        private void app_Startup(object sender, StartupEventArgs e)
+        {
+            createBancoSqlite();
+        }
     }
 }

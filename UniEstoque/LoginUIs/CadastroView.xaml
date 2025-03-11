@@ -1,0 +1,47 @@
+﻿<Window x:Class="UniEstoque.LoginUIs.CadastroView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UniEstoque.LoginUIs"
+        mc:Ignorable="d"
+        Title="Cadastro"
+        Height="390"
+        Width="420"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Cadastrar-se" FontSize="30" FontWeight="Bold" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Top">
+
+            <TextBlock Text="Nome do Usuário" FontWeight="SemiBold"/>
+            <TextBox Name="txtNome" Height="30"/>
+
+            <TextBlock Text="CPF" FontWeight="SemiBold"/>
+            <TextBox Name="txtCPF" Height="30"/>
+
+            <TextBlock Text="Senha" FontWeight="SemiBold"/>
+            <PasswordBox Name="txtSenha" Height="30"/>
+
+            
+            <TextBlock Text="Confirmar Senha" FontWeight="SemiBold"/>
+            <PasswordBox Name="txtConfirmarSenha" Height="30"/>
+
+            <Button Content="Cadastrar" Height="40" FontSize="16"
+                    Background="#0078D7" Foreground="White" FontWeight="Bold"
+                    Margin="0,10,0,10" Click="cadastrar_Click"/>
+
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="Blue" Cursor="Hand">
+                <Hyperlink NavigateUri="#" Click="backToLogin_Click">Já possuo Login</Hyperlink>
+            </TextBlock>
+
+        </StackPanel>
+    </Grid>
+</Window>
