@@ -12,6 +12,7 @@ namespace UniEstoque.Classes
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public string Senha { get; set; }
+        public string Cargo { get; set; }
         public int Status { get; set; }
 
 
@@ -21,6 +22,7 @@ namespace UniEstoque.Classes
             Nome = String.Empty;
             Cpf = String.Empty;
             Senha = String.Empty;
+            Cargo = String.Empty;
             Status = 0;
         }
     }

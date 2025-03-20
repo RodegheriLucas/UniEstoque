@@ -20,6 +20,7 @@ namespace UniEstoque.Banco
                                         nome varchar(50),
                                         cpf varchar(11),
                                         senha char(60),
+                                        cargo varchar(50)
                                         status int not null default(0))";
                     cmd.ExecuteNonQuery();
                 }
@@ -77,11 +78,12 @@ namespace UniEstoque.Banco
                 {
                     if (funcionario.Id != null)
                     {
-                        cmd.CommandText = "INSERT INTO Funcionario (id, nome, cpf, senha, status) VALUES (@id, @nome, @cpf, @senha, @stauts)"; //Verificar se posso usar o $ e {}
+                        cmd.CommandText = "INSERT INTO Funcionario (id, nome, cpf, senha, status) VALUES (@id, @nome, @cpf, @senha, @cargo, @stauts)"; //Verificar se posso usar o $ e {}
                         cmd.Parameters.AddWithValue("@id", funcionario.Id);
                         cmd.Parameters.AddWithValue("@nome", funcionario.Nome);
                         cmd.Parameters.AddWithValue("@cpf", funcionario.Cpf);
                         cmd.Parameters.AddWithValue("@senha", funcionario.Senha);
+                        cmd.Parameters.AddWithValue("@cargo", funcionario.Cargo);
                         cmd.Parameters.AddWithValue("@status", funcionario.Status);
                         cmd.ExecuteNonQuery();
                     }
@@ -104,6 +106,7 @@ namespace UniEstoque.Banco
                         cmd.Parameters.AddWithValue("@nome", funcionario.Nome);
                         cmd.Parameters.AddWithValue("@cpf", funcionario.Cpf);
                         cmd.Parameters.AddWithValue("@senha", funcionario.Senha);
+                        cmd.Parameters.AddWithValue("@cargo", funcionario.Cargo);
                         cmd.ExecuteNonQuery();
                     }
                 }
