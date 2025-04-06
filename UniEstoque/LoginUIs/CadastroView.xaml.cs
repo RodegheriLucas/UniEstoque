@@ -59,17 +59,24 @@ namespace UniEstoque.LoginUIs
                 btnConfirmar.Focus();
             }
         }
- 
+
         private void cadastrar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-               if (txtNome.Equals("") || txtCpf.Equals("") || txtSenha.Equals("") || txtConfirmarSenha.Equals(""))
+                if (txtNome.Text.Equals("") || txtCpf.Text.Equals("") || txtSenha.Password.Equals("") || txtConfirmarSenha.Password.Equals(""))
                     throw new Exception("Preencha todos os campos!");
+                if (txtCpf.Text.Length < 11)
+                    throw new Exception("O CPF deve conter 11 dígitos!");
                 if (txtSenha.Password != txtConfirmarSenha.Password)
                     throw new Exception("As senhas não conferem!");
                 else
+                {
                     FuncionarioDB.addFuncionario(txtNome.Text, txtCpf.Text, txtSenha.Password);
+                    LoginView loginView = new LoginView();
+                    loginView.Show();
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {

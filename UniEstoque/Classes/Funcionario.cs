@@ -19,7 +19,6 @@ namespace UniEstoque.Classes
         }
         public StatusEnum Status { get; set; }
 
-
         public Funcionario()
         {
             Id = 0; 
