@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Data.SQLite;
-using System.Net;
-using System.Xml.Serialization.Configuration;
 using UniEstoque.Classes;
 
 namespace UniEstoque.Banco
@@ -113,7 +111,7 @@ namespace UniEstoque.Banco
                 throw ex;
             }
         }
-        public static void deleteFuncionario(int id) 
+        public static void deleteFuncionario(int id)
         {
             try
             {

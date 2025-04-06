@@ -31,9 +31,17 @@ namespace UniEstoque.LoginUIs
 
         }
 
-        private void backToLogin_Click(object sender, RoutedEventArgs e)
+        private void goToLogin_Click(object sender, RoutedEventArgs e)
         {
+            LoginView loginView = new LoginView();
+            loginView.Show();
+            this.Close();
+        }
 
+        private void keyUpNome(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.Enter))
+                txtCPF.Focus();
         }
     }
 }

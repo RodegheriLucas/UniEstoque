@@ -22,7 +22,7 @@
         <StackPanel Grid.Row="1" VerticalAlignment="Top">
 
             <TextBlock Text="Nome do Usuário" FontWeight="SemiBold"/>
-            <TextBox Name="txtNome" Height="30"/>
+            <TextBox Name="txtNome" Height="30" MaxLength="50" KeyUp="keyUpNome"/>
 
             <TextBlock Text="CPF" FontWeight="SemiBold"/>
             <TextBox Name="txtCPF" Height="30"/>
@@ -39,7 +39,7 @@
                     Margin="0,10,0,10" Click="cadastrar_Click"/>
 
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="Blue" Cursor="Hand">
-                <Hyperlink NavigateUri="#" Click="backToLogin_Click">Já possuo Login</Hyperlink>
+                <Hyperlink NavigateUri="#" Click="goToLogin_Click">Já possuo Login</Hyperlink>
             </TextBlock>
 
         </StackPanel>
