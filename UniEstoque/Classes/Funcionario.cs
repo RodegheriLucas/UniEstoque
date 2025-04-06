@@ -1,26 +1,28 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Security.Cryptography;
+using UniEstoque.Util;
 
 namespace UniEstoque.Classes
 {
     public class Funcionario
     {
-        private static int lastId = 0; // variavel privada para verificar o ultimo id gerado
-        private int _Id; // id do funcionario
-        public int Id
-        {
-            get { return _Id; }
-            private set { _Id = value; } // só sera setada dentro do construtor, impossivel de setar fora de Funcionario
-        }
+        private string _Senha;
+        
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
-        public string Senha { get; set; }
+        public string Senha 
+        {
+            get => _Senha;
+            set => _Senha = PasswordHelper.HashPassword(value); // Sempre que for colcoar uma senha, deixar ela desse jeito aqui
+        }
         public StatusEnum Status { get; set; }
 
 
         public Funcionario()
         {
-            _Id = ++lastId; // adiciona mais um no lastId e seta o Id do funcionario 
+            Id = 0; 
             Nome = String.Empty;
             Cpf = String.Empty;
             Senha = String.Empty;

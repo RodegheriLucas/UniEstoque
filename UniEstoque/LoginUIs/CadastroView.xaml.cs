@@ -26,10 +26,6 @@ namespace UniEstoque.LoginUIs
             InitializeComponent();
         }
 
-        private void cadastrar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void goToLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -41,7 +37,44 @@ namespace UniEstoque.LoginUIs
         private void keyUpNome(object sender, KeyEventArgs e)
         {
             if (e.Key.Equals(Key.Enter))
-                txtCPF.Focus();
+                txtCpf.Focus();
+        }
+
+        private void KeyUpCpf(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.Enter))
+                txtSenha.Focus();
+        }
+
+        private void keyUpSenha(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.Enter))
+                txtConfirmarSenha.Focus();
+        }
+
+        private void KeyUpConfirmaSenha(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.Enter))
+            {
+                btnConfirmar.Focus();
+            }
+        }
+ 
+        private void cadastrar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+               if (txtNome.Equals("") || txtCpf.Equals("") || txtSenha.Equals("") || txtConfirmarSenha.Equals(""))
+                    throw new Exception("Preencha todos os campos!");
+                if (txtSenha.Password != txtConfirmarSenha.Password)
+                    throw new Exception("As senhas não conferem!");
+                else
+                    FuncionarioDB.addFuncionario(txtNome.Text, txtCpf.Text, txtSenha.Password);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

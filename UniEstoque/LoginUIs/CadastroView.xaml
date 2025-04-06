@@ -25,16 +25,16 @@
             <TextBox Name="txtNome" Height="30" MaxLength="50" KeyUp="keyUpNome"/>
 
             <TextBlock Text="CPF" FontWeight="SemiBold"/>
-            <TextBox Name="txtCPF" Height="30"/>
+            <TextBox Name="txtCpf" Height="30" MaxLength="11" KeyUp="KeyUpCpf"/>
 
             <TextBlock Text="Senha" FontWeight="SemiBold"/>
-            <PasswordBox Name="txtSenha" Height="30"/>
+            <PasswordBox Name="txtSenha" Height="30" KeyUp="keyUpSenha"/>
 
             
             <TextBlock Text="Confirmar Senha" FontWeight="SemiBold"/>
-            <PasswordBox Name="txtConfirmarSenha" Height="30"/>
+            <PasswordBox Name="txtConfirmarSenha" Height="30" KeyUp="KeyUpConfirmaSenha"/>
 
-            <Button Content="Cadastrar" Height="40" FontSize="16"
+            <Button Name="btnConfirmar" Content="Cadastrar" Height="40" FontSize="16"
                     Background="#0078D7" Foreground="White" FontWeight="Bold"
                     Margin="0,10,0,10" Click="cadastrar_Click"/>
 

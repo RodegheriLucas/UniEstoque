@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SQLite;
 using UniEstoque.Classes;
+using UniEstoque.Util;
 
 namespace UniEstoque.Banco
 {
@@ -14,7 +15,7 @@ namespace UniEstoque.Banco
                 using (var cmd = DatabaseInit.dbConnection().CreateCommand())
                 {
                     cmd.CommandText = $@"CREATE TABLE IF NOT EXISTS Funcionario(
-                                        id integer not null primary key,
+                                        id integer not null primary key autoincrement,
                                         nome varchar(50),
                                         cpf varchar(11),
                                         senha char(60),
@@ -67,22 +68,22 @@ namespace UniEstoque.Banco
                 throw ex;
             }
         }
-        public static void addFuncionario(Funcionario funcionario)
+        public static void addFuncionario(string nome, string cpf, string senha) // TA DANDO ERRO, VERIFICAR AMANHÃ
         {
             try
             {
-                using (var cmd = new SQLiteCommand(DatabaseInit.dbConnection()))
+                Funcionario funcionario = new Funcionario(); // é necessário criar um novo funcionario para pegar o id
+                funcionario.Nome = nome;
+                funcionario.Cpf = cpf;
+                funcionario.Senha = senha;
+                using (var cmd = DatabaseInit.dbConnection().CreateCommand())
                 {
-                    if (funcionario.Id != null)
-                    {
-                        cmd.CommandText = "INSERT INTO Funcionario (id, nome, cpf, senha, status) VALUES (@id, @nome, @cpf, @senha, @stauts)"; //Verificar se posso usar o $ e {}
-                        cmd.Parameters.AddWithValue("@id", funcionario.Id);
-                        cmd.Parameters.AddWithValue("@nome", funcionario.Nome);
-                        cmd.Parameters.AddWithValue("@cpf", funcionario.Cpf);
-                        cmd.Parameters.AddWithValue("@senha", funcionario.Senha);
-                        cmd.Parameters.AddWithValue("@status", funcionario.Status);
-                        cmd.ExecuteNonQuery();
-                    }
+                    cmd.CommandText = "INSERT INTO Funcionario (nome, cpf, senha, status) VALUES (@nome, @cpf, @senha, @status)"; //Verificar se posso usar o $ e {}
+                    cmd.Parameters.AddWithValue("@nome", funcionario.Nome);
+                    cmd.Parameters.AddWithValue("@cpf", funcionario.Cpf);
+                    cmd.Parameters.AddWithValue("@senha", funcionario.Senha);
+                    cmd.Parameters.AddWithValue("@status", funcionario.Status);
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
