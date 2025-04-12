@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using UniEstoque.Banco;
+using UniEstoque.Classes;
 
 namespace UniEstoque.LoginUIs
 {
@@ -23,17 +15,45 @@ namespace UniEstoque.LoginUIs
         {
             InitializeComponent();
         }
-        private void entrar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void goToCadastro_Click(object sender, RoutedEventArgs e)
         {
-            CadastroView telaCadastro = new CadastroView();
+            CadastroView telaCadastro = new CadastroView(); 
             telaCadastro.Show();
             this.Close();
         }
+        private void KeyUpCpf(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.Enter))
+                txtSenha.Focus();
+        }
 
+        private void KeyUpConfirmaSenha(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+           if (e.Key.Equals(Key.Enter))
+                btnEntrar.Focus();
+        }
+
+        private void btnEntrar_Click(object sender, RoutedEventArgs e) // se aqui tem catch, n'ao precisa ter no db. Arrumar isso depois
+        {
+            try
+            {
+                if (txtCpf.Text == "" || txtSenha.Password == "")
+                    throw new Exception("Preencha todos os campos");
+                else if (txtCpf.Text.Length < 11)
+                    throw new Exception("O CPF deve conter 11 dígitos");
+                else
+                {
+                    Funcionario funcionario = FuncionarioDB.getFuncionarioLogin(txtCpf.Text, txtSenha.Password);
+                    MessageBox.Show("Login realizado com sucesso!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+
+        }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SQLite;
-using System.Net;
-using System.Xml.Serialization.Configuration;
+using System.Net.NetworkInformation;
 using UniEstoque.Classes;
+using UniEstoque.Util;
 
 namespace UniEstoque.Banco
 {
@@ -16,7 +17,7 @@ namespace UniEstoque.Banco
                 using (var cmd = DatabaseInit.dbConnection().CreateCommand())
                 {
                     cmd.CommandText = $@"CREATE TABLE IF NOT EXISTS Funcionario(
-                                        id integer not null primary key,
+                                        id integer not null primary key autoincrement,
                                         nome varchar(50),
                                         cpf varchar(11),
                                         senha char(60),
@@ -70,23 +71,62 @@ namespace UniEstoque.Banco
                 throw ex;
             }
         }
-        public static void addFuncionario(Funcionario funcionario)
+
+        /// <summary>
+        /// Este método irá verificar o login do funcionário, e retornará um funcionario com os dados dele.
+        /// </summary>
+        /// <param name="cpf"></param>
+        /// <param name="senha"></param>
+        /// <returns></returns>
+        public static Funcionario getFuncionarioLogin(string cpf, string senha)
+        {
+            using (var cmd = DatabaseInit.dbConnection().CreateCommand())
+            {
+                cmd.CommandText = $"SELECT * FROM Funcionario WHERE cpf = @cpf";
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                SQLiteDataReader dr = cmd.ExecuteReader();
+                Funcionario funcionario = new Funcionario();
+                if (dr.Read())
+                {
+                    string senhaBanco = dr.GetString(3);
+                    string senhaInformada = PasswordHelper.HashPassword(senha);
+
+                    if (senhaBanco.Equals(senhaInformada))
+                    {
+                        funcionario.Id = dr.GetInt32(0);
+                        funcionario.Nome = dr.GetString(1);
+                        funcionario.Cpf = dr.GetString(2);
+                        funcionario.Senha = dr.GetString(3);
+                        funcionario.Status = (Funcionario.StatusEnum)dr.GetInt32(4);
+                        return funcionario;
+                    }
+                    else
+                        throw new Exception("Login incorreto"); // Melhorar esta mensagem, ta paia
+                }
+                else
+                {
+                    throw new Exception("Impossível de gerar Funcionário");
+                }
+            }
+        }
+
+        public static void addFuncionario(string nome, string cpf, string senha)
         {
             try
             {
-                using (var cmd = new SQLiteCommand(DatabaseInit.dbConnection()))
+                Funcionario funcionario = new Funcionario(); // é necessário criar um novo funcionario para pegar o id
+                funcionario.Nome = nome;
+                funcionario.Cpf = cpf;
+                funcionario.Senha = senha;
+                using (var cmd = DatabaseInit.dbConnection().CreateCommand())
                 {
-                    if (funcionario.Id != null)
-                    {
-                        cmd.CommandText = "INSERT INTO Funcionario (id, nome, cpf, senha, status) VALUES (@id, @nome, @cpf, @senha, @cargo, @stauts)"; //Verificar se posso usar o $ e {}
-                        cmd.Parameters.AddWithValue("@id", funcionario.Id);
-                        cmd.Parameters.AddWithValue("@nome", funcionario.Nome);
-                        cmd.Parameters.AddWithValue("@cpf", funcionario.Cpf);
-                        cmd.Parameters.AddWithValue("@senha", funcionario.Senha);
-                        cmd.Parameters.AddWithValue("@cargo", funcionario.Cargo);
-                        cmd.Parameters.AddWithValue("@status", funcionario.Status);
-                        cmd.ExecuteNonQuery();
-                    }
+                    cmd.CommandText = "INSERT INTO Funcionario (nome, cpf, senha, cargo, status) VALUES (@nome, @cpf, @senha, @cargo, @status)"; //Verificar se posso usar o $ e {}
+                    cmd.Parameters.AddWithValue("@nome", funcionario.Nome);
+                    cmd.Parameters.AddWithValue("@cpf", funcionario.Cpf);
+                    cmd.Parameters.AddWithValue("@senha", funcionario.Senha);
+                    cmd.Parameters.AddWithValue("@cargo", funcionario.Cargo);
+                    cmd.Parameters.AddWithValue("@status", funcionario.Status);
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
@@ -116,7 +156,7 @@ namespace UniEstoque.Banco
                 throw ex;
             }
         }
-        public static void deleteFuncionario(int id) 
+        public static void deleteFuncionario(int id)
         {
             try
             {

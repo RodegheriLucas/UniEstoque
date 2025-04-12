@@ -1,4 +1,6 @@
 ﻿using System.Data.SQLite;
+using System.IO;
+using System.Windows;
 
 namespace UniEstoque.Banco
 {
@@ -19,11 +21,13 @@ namespace UniEstoque.Banco
         {
             try
             {
-                SQLiteConnection.CreateFile(@"c:\dados\UniEstoqueDB.sqlite");
+                string dbFilePath = @"f:\dados\UniEstoqueDB.sqlite";
+                if (!File.Exists(dbFilePath))
+                    SQLiteConnection.CreateFile(@"f:\dados\UniEstoqueDB.sqlite"); // PADRONIZAR UM CAMINHO PADRÃO, DEVEMOS MARCAR UMA REUNIÃO PAR DEFINIR ISSO
             }
             catch
             {
-                throw;
+                MessageBox.Show("Erro ocorreu durante a criação do banco", "ERROR", MessageBoxButton.OK);
             }
         }
     }

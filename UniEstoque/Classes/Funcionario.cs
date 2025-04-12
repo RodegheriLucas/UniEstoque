@@ -1,20 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UniEstoque.Util;
 
 namespace UniEstoque.Classes
 {
     public class Funcionario
     {
+        private string _Senha;
+
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
-        public string Senha { get; set; }
+        public string Senha
+        {
+            get => _Senha;
+            set => _Senha = PasswordHelper.HashPassword(value); // Sempre que for colcoar uma senha, deixar ela desse jeito aqui
+        }
         public string Cargo { get; set; }
-        public int Status { get; set; }
-
+        public StatusEnum Status { get; set; }
 
         public Funcionario()
         {
@@ -23,7 +25,14 @@ namespace UniEstoque.Classes
             Cpf = String.Empty;
             Senha = String.Empty;
             Cargo = String.Empty;
-            Status = 0;
+            Status = StatusEnum.Ativo;
+        }
+
+        public enum StatusEnum
+        {
+            Ativo = 1,
+            Inativo = 0,
+            // Descutir a necessidade de outras opções 
         }
     }
 }
