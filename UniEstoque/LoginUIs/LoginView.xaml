@@ -21,14 +21,14 @@
 
         <StackPanel Grid.Row="1" VerticalAlignment="Top">
             <TextBlock Text="CPF" FontWeight="SemiBold"/>
-            <TextBox Name="txtCPF" Height="30"/>
+            <TextBox Name="txtCpf" Height="30" KeyUp="KeyUpCpf" MaxLength="11"/>
 
             <TextBlock Text="Senha" FontWeight="SemiBold"/>
-            <PasswordBox Name="txtSenha" Height="30"/>
+            <PasswordBox Name="txtSenha" Height="30" KeyUp="KeyUpConfirmaSenha"/>
 
-            <Button Content="Entrar" Height="40" FontSize="16"
+            <Button Name="btnEntrar" Content="Entrar" Height="40" FontSize="16"
                     Background="#0078D7" Foreground="White" FontWeight="Bold"
-                    Margin="0,10,0,10" Click="entrar_Click"/>
+                    Margin="0,10,0,10" Click="btnEntrar_Click"/>
 
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="Blue" Cursor="Hand">
                 <Hyperlink NavigateUri="#" Click="goToCadastro_Click">Não tem uma conta? Cadastre-se</Hyperlink>
@@ -36,3 +36,8 @@
         </StackPanel>
     </Grid>
 </Window>
+    
+    
+    
+    
+<!--Identar isso aqui, pq ta muito feio-->

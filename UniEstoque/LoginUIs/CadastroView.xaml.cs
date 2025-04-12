@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using UniEstoque.Banco;
 
 namespace UniEstoque.LoginUIs
@@ -55,9 +45,7 @@ namespace UniEstoque.LoginUIs
         private void KeyUpConfirmaSenha(object sender, KeyEventArgs e)
         {
             if (e.Key.Equals(Key.Enter))
-            {
                 btnConfirmar.Focus();
-            }
         }
 
         private void cadastrar_Click(object sender, RoutedEventArgs e)
@@ -66,9 +54,9 @@ namespace UniEstoque.LoginUIs
             {
                 if (txtNome.Text.Equals("") || txtCpf.Text.Equals("") || txtSenha.Password.Equals("") || txtConfirmarSenha.Password.Equals(""))
                     throw new Exception("Preencha todos os campos!");
-                if (txtCpf.Text.Length < 11)
+                else if (txtCpf.Text.Length < 11)
                     throw new Exception("O CPF deve conter 11 dígitos!");
-                if (txtSenha.Password != txtConfirmarSenha.Password)
+                else if (txtSenha.Password != txtConfirmarSenha.Password)
                     throw new Exception("As senhas não conferem!");
                 else
                 {

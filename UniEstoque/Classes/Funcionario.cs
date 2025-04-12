@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Security.Cryptography;
 using UniEstoque.Util;
 
 namespace UniEstoque.Classes
@@ -8,11 +6,11 @@ namespace UniEstoque.Classes
     public class Funcionario
     {
         private string _Senha;
-        
+
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
-        public string Senha 
+        public string Senha
         {
             get => _Senha;
             set => _Senha = PasswordHelper.HashPassword(value); // Sempre que for colcoar uma senha, deixar ela desse jeito aqui
@@ -21,7 +19,7 @@ namespace UniEstoque.Classes
 
         public Funcionario()
         {
-            Id = 0; 
+            Id = 0;
             Nome = String.Empty;
             Cpf = String.Empty;
             Senha = String.Empty;

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SQLite;
+using System.Net.NetworkInformation;
 using UniEstoque.Classes;
 using UniEstoque.Util;
 
@@ -68,7 +70,46 @@ namespace UniEstoque.Banco
                 throw ex;
             }
         }
-        public static void addFuncionario(string nome, string cpf, string senha) // TA DANDO ERRO, VERIFICAR AMANHÃ
+
+        /// <summary>
+        /// Este método irá verificar o login do funcionário, e retornará um funcionario com os dados dele.
+        /// </summary>
+        /// <param name="cpf"></param>
+        /// <param name="senha"></param>
+        /// <returns></returns>
+        public static Funcionario getFuncionarioLogin(string cpf, string senha)
+        {
+            using (var cmd = DatabaseInit.dbConnection().CreateCommand())
+            {
+                cmd.CommandText = $"SELECT * FROM Funcionario WHERE cpf = @cpf";
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                SQLiteDataReader dr = cmd.ExecuteReader();
+                Funcionario funcionario = new Funcionario();
+                if (dr.Read())
+                {
+                    string senhaBanco = dr.GetString(3);
+                    string senhaInformada = PasswordHelper.HashPassword(senha);
+
+                    if (senhaBanco.Equals(senhaInformada))
+                    {
+                        funcionario.Id = dr.GetInt32(0);
+                        funcionario.Nome = dr.GetString(1);
+                        funcionario.Cpf = dr.GetString(2);
+                        funcionario.Senha = dr.GetString(3);
+                        funcionario.Status = (Funcionario.StatusEnum)dr.GetInt32(4);
+                        return funcionario;
+                    }
+                    else
+                        throw new Exception("Login incorreto"); // Melhorar esta mensagem, ta paia
+                }
+                else
+                {
+                    throw new Exception("Impossível de gerar Funcionário");
+                }
+            }
+        }
+
+        public static void addFuncionario(string nome, string cpf, string senha)
         {
             try
             {
