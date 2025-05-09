@@ -36,6 +36,7 @@ namespace UniEstoque.LoginUIs
 
         private void btnEntrar_Click(object sender, RoutedEventArgs e) // se aqui tem catch, n'ao precisa ter no db. Arrumar isso depois
         {
+            /*
             try
             {
                 if (txtCpf.Text == "" || txtSenha.Password == "")
@@ -46,6 +47,8 @@ namespace UniEstoque.LoginUIs
                 {
                     Funcionario funcionario = FuncionarioDB.getFuncionarioLogin(txtCpf.Text, txtSenha.Password);
                     MessageBox.Show("Login realizado com sucesso!");
+                    Window Dashboard = new DashboardTela();
+                    Dashboard.Show();
                 }
             }
             catch (Exception ex)
@@ -53,7 +56,9 @@ namespace UniEstoque.LoginUIs
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
-
+            */
+            Window Dashboard = new DashboardTela();
+            Dashboard.Show();
         }
     }
 }

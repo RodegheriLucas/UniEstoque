@@ -1,0 +1,85 @@
+﻿<Window x:Class="UniEstoque.FormsUIs.FormAddItem"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UniEstoque.FormsUIs"
+      mc:Ignorable="d" 
+      d:Height="700" d:Width="600"
+      Background="White"
+      Title="ItensForm">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--  Header  -->
+        <Rectangle x:Name="HeaderBase" 
+                   Height="100" 
+                   Fill="#FF1F1F1F" 
+                   VerticalAlignment="Top"/>
+        <!-- Título -->
+        <TextBlock x:Name="Title" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Row="0"
+                   TextAlignment="Center" 
+                   Foreground="White" 
+                   FontSize="40">
+            <Bold>Novo Item</Bold>
+        </TextBlock>
+        <!-- Input Item Name -->
+        <Rectangle Name="ItemNameRectangle"
+                 Grid.Row="1"
+                 Style="{StaticResource RectangleForm}">
+        </Rectangle>
+        <TextBox Name="ItemNameBox"
+                 Grid.Row="1"
+                 Style="{StaticResource TextBoxForm}">
+        </TextBox>
+        <!-- Input Item Size -->
+        <Rectangle Name="ItemSizeRectangle"
+             Grid.Row="2"
+             Style="{StaticResource RectangleForm}">
+        </Rectangle>
+        <TextBox Name="ItemSizeBox"
+            Grid.Row="2"
+            Style="{StaticResource TextBoxForm}">
+        </TextBox>
+        <!-- Input Item Price -->
+        <Rectangle Name="ItemPriceRectangle"
+                 Grid.Row="3"
+                 Style="{StaticResource RectangleForm}">
+        </Rectangle>
+        <TextBox Name="ItemPriceBox"
+                 Grid.Row="3"
+                 Style="{StaticResource TextBoxForm}">
+        </TextBox>
+        <!-- Input Item Supplier -->
+        <Rectangle Name="ItemSupplierRectangle"
+                 Grid.Row="4"
+                 Style="{StaticResource RectangleForm}">
+        </Rectangle>
+        <TextBox Name="ItemSupplierBox"
+                 Grid.Row="4"
+                 Style="{StaticResource TextBoxForm}">
+        </TextBox>
+        <!-- Confirmation Buttons -->
+        <Button Name="CancelForm"
+                Grid.Row="8"
+                HorizontalAlignment="Left"
+                Margin="15"
+                Style="{StaticResource CancelButton}"/>
+
+        <Button Name="ConfirmForm"
+                Grid.Row="8"
+                HorizontalAlignment="Right"
+                Margin="15"
+                Style="{StaticResource ConfirmButton}"
+                Click="Confirm_Click"/>
+    </Grid>
+</Window>

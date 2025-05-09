@@ -45,5 +45,54 @@
             </Style>
         </Style.Resources>
     </Style>
-            
+
+    <Style x:Key="RectangleForm" TargetType="Rectangle">
+        <Setter Property="Width" Value="420"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Fill" Value="Black"/>
+        <Setter Property="RadiusX" Value="6"/>
+        <Setter Property="RadiusY" Value="6"/>
+    </Style>
+    <Style x:Key="TextBoxForm" TargetType="TextBox">
+        <Setter Property="Width" Value="400"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Background" Value="#333333 "/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="FontSize" Value="19"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <Style x:Key="CancelButton" TargetType="Button">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="Background" Value="#8B0000"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Content" Value="Cancelar"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="10"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <Style x:Key="ConfirmButton" TargetType="Button">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="Background" Value="#006400"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Content" Value="Concluir"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="10"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+
 </ResourceDictionary>

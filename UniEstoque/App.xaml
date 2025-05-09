@@ -4,4 +4,11 @@
              xmlns:local="clr-namespace:UniEstoque"
              StartupUri="LoginUIs/LoginView.xaml"
              Startup="app_Startup">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DesignRes\Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

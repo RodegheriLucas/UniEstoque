@@ -8,16 +8,10 @@
       Background="Black"
       d:DesignHeight="920" d:DesignWidth="250"
       Title="Navbar">
-    <Page.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="DesignRes\Styles.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
@@ -69,6 +63,14 @@
             HorizontalAlignment="Stretch" 
             VerticalAlignment="Center" 
             Grid.Row="4">Relatórios
+        </Button>
+        <Button 
+            x:Name="Itens" 
+            Style="{StaticResource BotoesNavbar}"
+            Click="Itens_Click"
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Center" 
+            Grid.Row="5">Itens
         </Button>
     </Grid>
 </Page>

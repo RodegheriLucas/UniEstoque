@@ -8,17 +8,7 @@
         Title="Dashboard" 
         Height="920" 
         Width="1600"
-        SizeToContent="Manual"
-        Style="{StaticResource MaterialDesignWindow}">
-
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="DesignRes\Styles.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
-
+        SizeToContent="Manual">
     <Grid>
         <!-- Definição da grade -->
         <Grid.ColumnDefinitions>
