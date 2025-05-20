@@ -66,7 +66,7 @@
                 Click="AdicionarItem_Click"
                 Style="{StaticResource BotaoPadrao}"/>
         <!--Tabela-->
-        <DataGrid x:Name="ItensDG" 
+        <!--<DataGrid x:Name="ItensDG" 
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   IsReadOnly="True"
@@ -82,7 +82,7 @@
                 <DataGridTextColumn Header="Fornecedor" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
             </DataGrid.Columns>
-        </DataGrid>
-
+        </DataGrid>-->
+        <DataGrid Name="dataGridItens" AutoGenerateColumns="True" Grid.Row="2" Grid.Column="1"/>
     </Grid>
 </Window>

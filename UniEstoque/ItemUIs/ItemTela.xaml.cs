@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Web.UI.WebControls;
 using System.Windows;
 using UniEstoque.Banco;
 using UniEstoque.FormsUIs;
@@ -14,7 +15,6 @@ namespace UniEstoque
         public ItemTela()
         {
             InitializeComponent();
-            ItensDG.ItemsSource = ItensDB.ItemRepository.Itens;
         }
         private void Navbar_Click(object sender, RoutedEventArgs e)
         {
@@ -38,14 +38,13 @@ namespace UniEstoque
         {
             try
             {
-                DataTable listItens = new DataTable();
-                listItens = ItensDB.getItensTable();
+                DataTable itensTable = ItensDB.getItensTable();
+                dataGridItens.ItemsSource = itensTable.DefaultView;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro: " + ex.Message);
             }
-            ItensDG.ItemsSource = ItensDB.ItemRepository.Itens;
         }
 
     }

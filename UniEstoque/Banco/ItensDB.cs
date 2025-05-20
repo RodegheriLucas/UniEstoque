@@ -73,7 +73,7 @@ namespace UniEstoque.Banco
             {
                 using (var cmd = DatabaseInit.dbConnection().CreateCommand())
                 {
-                    cmd.CommandText = "INSERT INTO Itens (id, item, tamanho) values(@id, @Item, @Tamanho, @Valor, @Fornecedor, @Status)";
+                    cmd.CommandText = "INSERT INTO Itens (id, item, tamanho, valor, fornecedor, status) VALUES (@id, @Item, @Tamanho, @Valor, @Fornecedor, @Status)";
                     cmd.Parameters.AddWithValue("@id", item.Id);
                     cmd.Parameters.AddWithValue("@Item", item.Item);
                     cmd.Parameters.AddWithValue("@Tamanho", item.Tamanho);

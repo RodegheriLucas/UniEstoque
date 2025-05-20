@@ -21,7 +21,7 @@ namespace UniEstoque.Banco
                                         nome varchar(50),
                                         cpf varchar(11),
                                         senha char(60),
-                                        cargo varchar(50)
+                                        cargo varchar(50),
                                         status int not null default(0))";
                     cmd.ExecuteNonQuery();
                 }
@@ -97,7 +97,7 @@ namespace UniEstoque.Banco
                         funcionario.Nome = dr.GetString(1);
                         funcionario.Cpf = dr.GetString(2);
                         funcionario.Senha = dr.GetString(3);
-                        funcionario.Status = (Funcionario.StatusEnum)dr.GetInt32(4);
+                        funcionario.Status = (Funcionario.StatusEnum)dr.GetInt32(5);
                         return funcionario;
                     }
                     else

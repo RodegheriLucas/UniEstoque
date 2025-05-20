@@ -22,7 +22,7 @@ namespace UniEstoque.Banco
         {
             try
             {
-                string dbFilePath = @"C:\dados\UniEstoqueDB.sqlite";
+                string dbFilePath = @"C:\Users\lucas\source\repos\UniEstoque\UniEstoque\dados\UniEstoqueDB.sqlite";
                 if (!File.Exists(dbFilePath))
                 {
                     SQLiteConnection.CreateFile(@"C:\Users\lucas\source\repos\UniEstoque\UniEstoque\dados\UniEstoqueDB.sqlite"); // PADRONIZAR UM CAMINHO PADRÃO, DEVEMOS MARCAR UMA REUNIÃO PAR DEFINIR ISSO
