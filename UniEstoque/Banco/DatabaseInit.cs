@@ -13,7 +13,7 @@ namespace UniEstoque.Banco
 
         public static SQLiteConnection dbConnection()
         {
-            sqliteConnection = new SQLiteConnection("Data Source=C:\\Users\\lucas\\source\\repos\\UniEstoque\\UniEstoque\\dados\\UniEstoqueDB.sqlite; Version=3;");
+            sqliteConnection = new SQLiteConnection("Data Source=C:dados\\UniEstoqueDB.sqlite; Version=3;");
             sqliteConnection.Open();
             return sqliteConnection;
         }
@@ -22,10 +22,10 @@ namespace UniEstoque.Banco
         {
             try
             {
-                string dbFilePath = @"C:\Users\lucas\source\repos\UniEstoque\UniEstoque\dados\UniEstoqueDB.sqlite";
+                string dbFilePath = @"C:\dados\UniEstoqueDB.sqlite";
                 if (!File.Exists(dbFilePath))
                 {
-                    SQLiteConnection.CreateFile(@"C:\Users\lucas\source\repos\UniEstoque\UniEstoque\dados\UniEstoqueDB.sqlite"); // PADRONIZAR UM CAMINHO PADRÃO, DEVEMOS MARCAR UMA REUNIÃO PAR DEFINIR ISSO
+                    SQLiteConnection.CreateFile(@"C:\dados\UniEstoqueDB.sqlite"); // PADRONIZAR UM CAMINHO PADRÃO, DEVEMOS MARCAR UMA REUNIÃO PAR DEFINIR ISSO
                     MessageBox.Show("Seu banco foi criado com sucesso");
                 }
                     
